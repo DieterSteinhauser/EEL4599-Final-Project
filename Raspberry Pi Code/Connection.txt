@@ -1,0 +1,2 @@
+yellow: tx -> brown
+green: rx -> white
