@@ -42,7 +42,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ##  XCTU Configuration
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The XBee devices are either transmitters or a receiver.
+ 
+The transmitters are configured to send API data without escapes [1]. They are configured to send and receieve UART data via their Tx and Rx pins at a baud rate of 9600.
+ 
+The receiver is configured to receive API data without escapes [1]. It is configured to send and receieve UART data via its Tx and Rx pins at a baud rate of 9600.
 
 ## Arduino Configuration
  
