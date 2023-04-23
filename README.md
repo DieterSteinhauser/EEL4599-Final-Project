@@ -51,4 +51,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Raspberry Pi Configuration
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Inputs: Sink XBee device, Ultrasonic Sensor 1 and 2
+Outputs: Thingspeak, Green/Yellow/Red LED, Speaker
+
+The raspberry pi uses a python script to receieve and interpret data from the xbee device. the data from the xbee is sent via the UART Tx and Rx pins on the pi, with a baud rate of 9600. The pi separates the data by id and parses the data being recieved. If the carbon monoxide data reaches a preset theshold, audio will play from the connected speaker to signify danger.
+
+The raspberry pi also receieves data from two ultrasonic sensors via the GPIO pins. the pi uses a python script to interpret the data and control the three LEDS - green, yellow, and red - depending on how close the car is to the sensor. The green LED will is lit until the car reaches a intermediate threshold. After that, the yellow LED is lit, and once the car passes the last threshold, the red LED will light up to let the driver know to stop.
+
+The Raspberry Pi uses:
+- the digi-xbee library (pip install digi-xbee) to interact with the xbee device
+- the http.client and urllib libraries to send data to thingspeak
+- the pygame library to output sound to the speaker
