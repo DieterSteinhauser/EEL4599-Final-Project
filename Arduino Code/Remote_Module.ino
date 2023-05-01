@@ -135,20 +135,6 @@ int wholenote = (60000 * 4) / tempo;
 
 int divider = 0, noteDuration = 0;
 
-SoftwareSerial XBeeSerial(2, 3); // create a software serial port on pins 2 and 3
-int sensorValue; // variable to read analogue output reading
-int digitalValue; // variable to read digital output reading
-
-void setup()
-{
-  Serial.begin(9600); // initialize the serial communication for debugging
-  XBeeSerial.begin(9600); // initialize the XBee serial communication
-  pinMode(buzzer, OUTPUT);//pin 9 of Arduino connected to buzzer
-  pinMode(12, OUTPUT); // pin 13 is connected to the anode terminal of the LED as an output
-  pinMode(11, INPUT); // pin 11 of Arduino is connected to the Do pin of the MQ135 as an input
-}
-
-
 void song() {
   for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 
@@ -172,6 +158,21 @@ void song() {
     // stop the waveform generation before the next note.
     noTone(buzzer);
   }
+}
+
+/*-----------------------------------^For Song Implementation^------------------------------------------*/
+
+SoftwareSerial XBeeSerial(2, 3); // create a software serial port on pins 2 and 3
+int sensorValue; // variable to read analogue output reading
+int digitalValue; // variable to read digital output reading
+
+void setup()
+{
+  Serial.begin(9600); // initialize the serial communication for debugging
+  XBeeSerial.begin(9600); // initialize the XBee serial communication
+  pinMode(buzzer, OUTPUT);//pin 9 of Arduino connected to buzzer
+  pinMode(12, OUTPUT); // pin 13 is connected to the anode terminal of the LED as an output
+  pinMode(11, INPUT); // pin 11 of Arduino is connected to the Do pin of the MQ135 as an input
 }
 
 void loop()
